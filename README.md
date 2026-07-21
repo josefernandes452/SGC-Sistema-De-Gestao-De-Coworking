@@ -1,2 +1,2 @@
-# SGE-Sistema-De-Gestao-De-Estagio
-Sistema de Gestão de Estagio 
+# SGC-Sistema-De-Gestao-De-Coworking
+Sistema de Gestão de Coworking
