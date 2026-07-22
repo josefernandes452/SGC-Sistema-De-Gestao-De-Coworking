@@ -1,0 +1,17 @@
+{
+    "name": "josefernandes452/sgc-coworking",
+    "description": "Sistema de Gestão de Coworking",
+    "type": "project",
+     "autoload": {
+                "psr-4": {
+             "App\\": "app/"
+             }
+        },
+    "authors": [
+        {
+            "name": "Jose Fernandes",
+            "email": "josefernandeess452@gmail.com"
+        }
+    ],
+    "require": {}
+}
