@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Core\ModelBase;
 
@@ -9,7 +9,7 @@ abstract class Model
 {
     protected PDO $pdo;
 
-    public function __contruct()
+    public function __construct()
     {
         $this->pdo = Database::getConexao();
     }
