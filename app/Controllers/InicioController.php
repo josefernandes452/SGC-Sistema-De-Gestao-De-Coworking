@@ -2,10 +2,15 @@
 
 namespace App\Controllers;
 
-class InicioController
+use App\Core\ControllerBase\Controller;
+
+class InicioController extends Controller
 {
     public function index():void
     {
-        echo "Bem-vindo ao Sistema de Gestão de Coworking!";
+        $this -> view('inicio/index', [
+            'titulo' => 'Sistema de Gestão de Coworking',
+        ]);
+        
     }
 }
