@@ -58,4 +58,38 @@ class AuthController extends Controller
 
         echo "Conta criada com sucesso! Utilizador ID: {$utilizadorId}";
     }
+
+    public function loginFormulario(): void
+{
+    $this->view('auth/login');
+}
+
+    public function login(): void
+    {
+            $email = trim($_POST['email'] ?? '');
+             $password = $_POST['password'] ?? '';
+
+        if ($email === '' || $password === '') {
+            die('Email e password são obrigatórios.');
+        }
+
+            $utilizadorModel = new UtilizadorModel();
+             $utilizador = $utilizadorModel->buscarPorEmail($email);
+
+        if ($utilizador === false || !password_verify($password, $utilizador['password_hash'])) {
+        die('Email ou password incorretos.');
+        }
+
+        if ((int) $utilizador['ativo'] !== 1) {
+        die('Esta conta está desativada.');
+        }
+
+         session_start();
+         $_SESSION['utilizador_id'] = $utilizador['id'];
+         $_SESSION['utilizador_nome'] = $utilizador['nome'];
+         $_SESSION['perfil_id'] = $utilizador['perfil_id'];
+
+        header('Location: /inicio');
+        exit;
+    }
 }
